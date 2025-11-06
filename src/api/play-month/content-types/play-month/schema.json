@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "play_months",
+  "info": {
+    "singularName": "play-month",
+    "pluralName": "play-months",
+    "displayName": "Play_month"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Play_month": {
+      "type": "string"
+    }
+  }
+}

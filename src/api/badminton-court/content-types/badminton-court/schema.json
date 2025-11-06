@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "badminton_courts",
+  "info": {
+    "singularName": "badminton-court",
+    "pluralName": "badminton-courts",
+    "displayName": "badminton court"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    }
+  }
+}

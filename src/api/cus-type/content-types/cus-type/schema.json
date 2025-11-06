@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cus_types",
+  "info": {
+    "singularName": "cus-type",
+    "pluralName": "cus-types",
+    "displayName": "Cus_type"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Ctype_id": {
+      "type": "integer"
+    },
+    "Ctype_name": {
+      "type": "string"
+    }
+  }
+}
