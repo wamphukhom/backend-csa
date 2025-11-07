@@ -11,14 +11,35 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Emp_id": {
-      "type": "integer"
-    },
     "Emp_Name": {
       "type": "string"
     },
     "Email": {
       "type": "email"
+    },
+    "Avatar": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Tel": {
+      "type": "string"
+    },
+    "Positioin": {
+      "type": "string"
+    },
+    "Rank": {
+      "type": "string"
+    },
+    "cus_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cus-type.cus-type"
     }
   }
 }
