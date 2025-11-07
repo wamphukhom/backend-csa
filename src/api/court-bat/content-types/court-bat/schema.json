@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "badminton_courts",
+  "collectionName": "court_bats",
   "info": {
-    "singularName": "badminton-court",
-    "pluralName": "badminton-courts",
-    "displayName": "badminton court"
+    "singularName": "court-bat",
+    "pluralName": "court-bats",
+    "displayName": "Court_bat"
   },
   "options": {
     "draftAndPublish": true

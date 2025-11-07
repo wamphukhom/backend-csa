@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "po_dtls",
+  "info": {
+    "singularName": "po-dtl",
+    "pluralName": "po-dtls",
+    "displayName": "PO_dtl"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PO_INV": {
+      "type": "string"
+    },
+    "stock": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::stock.stock"
+    },
+    "DTL_qty": {
+      "type": "integer"
+    },
+    "DTL_price": {
+      "type": "integer"
+    }
+  }
+}

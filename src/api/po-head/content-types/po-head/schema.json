@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "po_heads",
+  "info": {
+    "singularName": "po-head",
+    "pluralName": "po-heads",
+    "displayName": "PO_head"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PO_id": {
+      "type": "string"
+    },
+    "PO_date": {
+      "type": "date"
+    },
+    "PO_sub": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::supplier.supplier"
+    }
+  }
+}
