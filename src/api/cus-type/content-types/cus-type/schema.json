@@ -11,9 +11,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Ctype_id": {
-      "type": "integer"
-    },
     "Ctype_name": {
       "type": "string"
     }
