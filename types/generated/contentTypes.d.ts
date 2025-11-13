@@ -556,6 +556,10 @@ export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    cus_position: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::cus-position.cus-position'
+    >;
     cus_type: Schema.Attribute.Relation<'oneToOne', 'api::cus-type.cus-type'>;
     Email: Schema.Attribute.Email;
     Emp_Name: Schema.Attribute.String;
@@ -565,7 +569,6 @@ export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
       'api::customer.customer'
     > &
       Schema.Attribute.Private;
-    Positioin: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     Rank: Schema.Attribute.String;
     Tel: Schema.Attribute.String;

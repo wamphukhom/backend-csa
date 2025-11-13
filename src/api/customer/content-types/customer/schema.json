@@ -30,9 +30,6 @@
     "Tel": {
       "type": "string"
     },
-    "Positioin": {
-      "type": "string"
-    },
     "Rank": {
       "type": "string"
     },
@@ -40,6 +37,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::cus-type.cus-type"
+    },
+    "cus_position": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cus-position.cus-position"
     }
   }
 }
