@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cus_positions",
+  "info": {
+    "singularName": "cus-position",
+    "pluralName": "cus-positions",
+    "displayName": "Cus_position"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Cpo_name": {
+      "type": "string"
+    }
+  }
+}

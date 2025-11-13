@@ -485,6 +485,34 @@ export interface ApiCourtBatCourtBat extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiCusPositionCusPosition extends Struct.CollectionTypeSchema {
+  collectionName: 'cus_positions';
+  info: {
+    displayName: 'Cus_position';
+    pluralName: 'cus-positions';
+    singularName: 'cus-position';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Cpo_name: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cus-position.cus-position'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCusTypeCusType extends Struct.CollectionTypeSchema {
   collectionName: 'cus_types';
   info: {
@@ -1270,6 +1298,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::bank.bank': ApiBankBank;
       'api::court-bat.court-bat': ApiCourtBatCourtBat;
+      'api::cus-position.cus-position': ApiCusPositionCusPosition;
       'api::cus-type.cus-type': ApiCusTypeCusType;
       'api::customer.customer': ApiCustomerCustomer;
       'api::member.member': ApiMemberMember;
