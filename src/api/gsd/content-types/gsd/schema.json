@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gsds",
+  "info": {
+    "singularName": "gsd",
+    "pluralName": "gsds",
+    "displayName": "GSD"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "GSD_code": {
+      "type": "string"
+    },
+    "GSD_name": {
+      "type": "string"
+    },
+    "GSD_grade": {
+      "type": "string"
+    },
+    "GSD_SMV": {
+      "type": "float"
+    },
+    "GSD_protype": {
+      "type": "string"
+    },
+    "GSD_style": {
+      "type": "string"
+    },
+    "GSD_customer": {
+      "type": "string"
+    }
+  }
+}

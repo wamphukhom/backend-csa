@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pro_types",
+  "info": {
+    "singularName": "pro-type",
+    "pluralName": "pro-types",
+    "displayName": "Pro_type"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Ptype_name": {
+      "type": "string"
+    }
+  }
+}

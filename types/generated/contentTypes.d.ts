@@ -670,6 +670,90 @@ export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiGradeGrade extends Struct.CollectionTypeSchema {
+  collectionName: 'grades';
+  info: {
+    displayName: 'Grade';
+    pluralName: 'grades';
+    singularName: 'grade';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    G_name: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::grade.grade'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGsdGsd extends Struct.CollectionTypeSchema {
+  collectionName: 'gsds';
+  info: {
+    displayName: 'GSD';
+    pluralName: 'gsds';
+    singularName: 'gsd';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    GSD_code: Schema.Attribute.String;
+    GSD_customer: Schema.Attribute.String;
+    GSD_grade: Schema.Attribute.String;
+    GSD_name: Schema.Attribute.String;
+    GSD_protype: Schema.Attribute.String;
+    GSD_SMV: Schema.Attribute.Float;
+    GSD_style: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::gsd.gsd'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProTypeProType extends Struct.CollectionTypeSchema {
+  collectionName: 'pro_types';
+  info: {
+    displayName: 'Pro_type';
+    pluralName: 'pro-types';
+    singularName: 'pro-type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pro-type.pro-type'
+    > &
+      Schema.Attribute.Private;
+    Ptype_name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1188,6 +1272,9 @@ declare module '@strapi/strapi' {
       'api::emp-position.emp-position': ApiEmpPositionEmpPosition;
       'api::emp-type.emp-type': ApiEmpTypeEmpType;
       'api::employee.employee': ApiEmployeeEmployee;
+      'api::grade.grade': ApiGradeGrade;
+      'api::gsd.gsd': ApiGsdGsd;
+      'api::pro-type.pro-type': ApiProTypeProType;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
