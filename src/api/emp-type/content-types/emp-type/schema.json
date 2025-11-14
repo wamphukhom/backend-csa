@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "emp_types",
+  "info": {
+    "singularName": "emp-type",
+    "pluralName": "emp-types",
+    "displayName": "Emp_type"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Etype_name": {
+      "type": "string"
+    }
+  }
+}

@@ -430,54 +430,24 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiBankBank extends Struct.SingleTypeSchema {
-  collectionName: 'banks';
+export interface ApiBuBu extends Struct.CollectionTypeSchema {
+  collectionName: 'bus';
   info: {
-    displayName: 'Bank';
-    pluralName: 'banks';
-    singularName: 'bank';
+    displayName: 'Bu';
+    pluralName: 'bus';
+    singularName: 'bu';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Bank_name: Schema.Attribute.String;
-    Bank_number: Schema.Attribute.Integer;
+    Bu_name: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::bank.bank'> &
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::bu.bu'> &
       Schema.Attribute.Private;
-    Name: Schema.Attribute.Relation<'oneToOne', 'api::customer.customer'>;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiCourtBatCourtBat extends Struct.SingleTypeSchema {
-  collectionName: 'court_bats';
-  info: {
-    displayName: 'Court_bat';
-    pluralName: 'court-bats';
-    singularName: 'court-bat';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::court-bat.court-bat'
-    > &
-      Schema.Attribute.Private;
-    Name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -552,17 +522,19 @@ export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Avatar: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    cus_position: Schema.Attribute.Relation<
+    Cus_id: Schema.Attribute.String;
+    Cus_img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Cus_mail: Schema.Attribute.Email;
+    Cus_name: Schema.Attribute.String;
+    Cus_position: Schema.Attribute.Relation<
       'oneToOne',
       'api::cus-position.cus-position'
     >;
-    cus_type: Schema.Attribute.Relation<'oneToOne', 'api::cus-type.cus-type'>;
-    Email: Schema.Attribute.Email;
-    Emp_Name: Schema.Attribute.String;
+    Cus_tel: Schema.Attribute.String;
+    Cus_type: Schema.Attribute.Relation<'oneToOne', 'api::cus-type.cus-type'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -570,20 +542,18 @@ export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Rank: Schema.Attribute.String;
-    Tel: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
   };
 }
 
-export interface ApiMemberMember extends Struct.CollectionTypeSchema {
-  collectionName: 'members';
+export interface ApiDepartmentDepartment extends Struct.SingleTypeSchema {
+  collectionName: 'departments';
   info: {
-    displayName: 'Member';
-    pluralName: 'members';
-    singularName: 'member';
+    displayName: 'Department';
+    pluralName: 'departments';
+    singularName: 'department';
   };
   options: {
     draftAndPublish: true;
@@ -592,197 +562,108 @@ export interface ApiMemberMember extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    customer: Schema.Attribute.Relation<'oneToOne', 'api::customer.customer'>;
-    Date_price: Schema.Attribute.Relation<'oneToOne', 'api::price.price'>;
-    Image_bill: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    Dep_name: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::member.member'
+      'api::department.department'
     > &
       Schema.Attribute.Private;
-    Month_price: Schema.Attribute.Relation<'oneToOne', 'api::price.price'>;
-    New_customer: Schema.Attribute.String;
-    Pay_date: Schema.Attribute.Date;
-    Pay_month: Schema.Attribute.Date;
-    Play_date: Schema.Attribute.Date;
-    Play_month: Schema.Attribute.Relation<
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEmpPositionEmpPosition extends Struct.CollectionTypeSchema {
+  collectionName: 'emp_positions';
+  info: {
+    displayName: 'Emp_position';
+    pluralName: 'emp-positions';
+    singularName: 'emp-position';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Epo_name: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::emp-position.emp-position'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEmpTypeEmpType extends Struct.CollectionTypeSchema {
+  collectionName: 'emp_types';
+  info: {
+    displayName: 'Emp_type';
+    pluralName: 'emp-types';
+    singularName: 'emp-type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Etype_name: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::emp-type.emp-type'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
+  collectionName: 'employees';
+  info: {
+    displayName: 'Employee';
+    pluralName: 'employees';
+    singularName: 'employee';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Emp_bu: Schema.Attribute.Relation<'oneToOne', 'api::bu.bu'>;
+    Emp_id: Schema.Attribute.String;
+    Emp_img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Emp_mail: Schema.Attribute.Email;
+    Emp_name: Schema.Attribute.String;
+    Emp_position: Schema.Attribute.Relation<
       'oneToOne',
-      'api::play-month.play-month'
+      'api::emp-position.emp-position'
     >;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiPlayMonthPlayMonth extends Struct.CollectionTypeSchema {
-  collectionName: 'play_months';
-  info: {
-    displayName: 'Play_month';
-    pluralName: 'play-months';
-    singularName: 'play-month';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
+    Emp_tel: Schema.Attribute.String;
+    Emp_type: Schema.Attribute.Relation<'oneToOne', 'api::emp-type.emp-type'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::play-month.play-month'
-    > &
-      Schema.Attribute.Private;
-    Play_month: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiPoDtlPoDtl extends Struct.CollectionTypeSchema {
-  collectionName: 'po_dtls';
-  info: {
-    displayName: 'PO_dtl';
-    pluralName: 'po-dtls';
-    singularName: 'po-dtl';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    DTL_price: Schema.Attribute.Integer;
-    DTL_qty: Schema.Attribute.Integer;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::po-dtl.po-dtl'
-    > &
-      Schema.Attribute.Private;
-    PO_INV: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    stock: Schema.Attribute.Relation<'oneToOne', 'api::stock.stock'>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiPoHeadPoHead extends Struct.CollectionTypeSchema {
-  collectionName: 'po_heads';
-  info: {
-    displayName: 'PO_head';
-    pluralName: 'po-heads';
-    singularName: 'po-head';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::po-head.po-head'
-    > &
-      Schema.Attribute.Private;
-    PO_date: Schema.Attribute.Date;
-    PO_id: Schema.Attribute.String;
-    PO_sub: Schema.Attribute.Relation<'oneToOne', 'api::supplier.supplier'>;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiPricePrice extends Struct.CollectionTypeSchema {
-  collectionName: 'prices';
-  info: {
-    displayName: 'Price';
-    pluralName: 'prices';
-    singularName: 'price';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::price.price'> &
-      Schema.Attribute.Private;
-    Price: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiStockStock extends Struct.CollectionTypeSchema {
-  collectionName: 'stocks';
-  info: {
-    displayName: 'Stock';
-    pluralName: 'stocks';
-    singularName: 'stock';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::stock.stock'> &
-      Schema.Attribute.Private;
-    Price: Schema.Attribute.Integer;
-    Product: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    Qty: Schema.Attribute.Integer;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiSupplierSupplier extends Struct.CollectionTypeSchema {
-  collectionName: 'suppliers';
-  info: {
-    displayName: 'Supplier';
-    pluralName: 'suppliers';
-    singularName: 'supplier';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::supplier.supplier'
+      'api::employee.employee'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Supplier: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1299,18 +1180,14 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::bank.bank': ApiBankBank;
-      'api::court-bat.court-bat': ApiCourtBatCourtBat;
+      'api::bu.bu': ApiBuBu;
       'api::cus-position.cus-position': ApiCusPositionCusPosition;
       'api::cus-type.cus-type': ApiCusTypeCusType;
       'api::customer.customer': ApiCustomerCustomer;
-      'api::member.member': ApiMemberMember;
-      'api::play-month.play-month': ApiPlayMonthPlayMonth;
-      'api::po-dtl.po-dtl': ApiPoDtlPoDtl;
-      'api::po-head.po-head': ApiPoHeadPoHead;
-      'api::price.price': ApiPricePrice;
-      'api::stock.stock': ApiStockStock;
-      'api::supplier.supplier': ApiSupplierSupplier;
+      'api::department.department': ApiDepartmentDepartment;
+      'api::emp-position.emp-position': ApiEmpPositionEmpPosition;
+      'api::emp-type.emp-type': ApiEmpTypeEmpType;
+      'api::employee.employee': ApiEmployeeEmployee;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -1,26 +1,26 @@
 {
   "kind": "collectionType",
-  "collectionName": "customers",
+  "collectionName": "employees",
   "info": {
-    "singularName": "customer",
-    "pluralName": "customers",
-    "displayName": "Customer"
+    "singularName": "employee",
+    "pluralName": "employees",
+    "displayName": "Employee"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Cus_id": {
+    "Emp_id": {
       "type": "string"
     },
-    "Cus_name": {
+    "Emp_name": {
       "type": "string"
     },
-    "Cus_mail": {
+    "Emp_mail": {
       "type": "email"
     },
-    "Cus_img": {
+    "Emp_img": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -30,18 +30,23 @@
         "audios"
       ]
     },
-    "Cus_tel": {
+    "Emp_tel": {
       "type": "string"
     },
-    "Cus_type": {
+    "Emp_bu": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::cus-type.cus-type"
+      "target": "api::bu.bu"
     },
-    "Cus_position": {
+    "Emp_position": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::cus-position.cus-position"
+      "target": "api::emp-position.emp-position"
+    },
+    "Emp_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::emp-type.emp-type"
     }
   }
 }

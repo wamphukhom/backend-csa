@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "emp_positions",
+  "info": {
+    "singularName": "emp-position",
+    "pluralName": "emp-positions",
+    "displayName": "Emp_position"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Epo_name": {
+      "type": "string"
+    }
+  }
+}
