@@ -754,6 +754,43 @@ export interface ApiProTypeProType extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTrainingTraining extends Struct.CollectionTypeSchema {
+  collectionName: 'trainings';
+  info: {
+    displayName: 'Training';
+    pluralName: 'trainings';
+    singularName: 'training';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::training.training'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Tcustomer: Schema.Attribute.Relation<'oneToOne', 'api::customer.customer'>;
+    Tcycle_time: Schema.Attribute.Decimal;
+    Tdate: Schema.Attribute.DateTime;
+    Temp_id: Schema.Attribute.Relation<'oneToOne', 'api::employee.employee'>;
+    Tgrade: Schema.Attribute.Relation<'oneToOne', 'api::grade.grade'>;
+    Tgsd_id: Schema.Attribute.Relation<'oneToOne', 'api::gsd.gsd'>;
+    Tperformance: Schema.Attribute.Decimal;
+    Tquality: Schema.Attribute.Integer;
+    Tstyle: Schema.Attribute.String;
+    Ttype: Schema.Attribute.Relation<'oneToOne', 'api::pro-type.pro-type'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1275,6 +1312,7 @@ declare module '@strapi/strapi' {
       'api::grade.grade': ApiGradeGrade;
       'api::gsd.gsd': ApiGsdGsd;
       'api::pro-type.pro-type': ApiProTypeProType;
+      'api::training.training': ApiTrainingTraining;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

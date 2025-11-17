@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trainings",
+  "info": {
+    "singularName": "training",
+    "pluralName": "trainings",
+    "displayName": "Training"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Temp_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::employee.employee"
+    },
+    "Tgsd_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::gsd.gsd"
+    },
+    "Tquality": {
+      "type": "integer"
+    },
+    "Tgrade": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::grade.grade"
+    },
+    "Tcycle_time": {
+      "type": "decimal"
+    },
+    "Tperformance": {
+      "type": "decimal"
+    },
+    "Ttype": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pro-type.pro-type"
+    },
+    "Tstyle": {
+      "type": "string"
+    },
+    "Tcustomer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::customer.customer"
+    },
+    "Tdate": {
+      "type": "datetime"
+    }
+  }
+}
