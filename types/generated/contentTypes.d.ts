@@ -754,6 +754,36 @@ export interface ApiProTypeProType extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTrainingDtlTrainingDtl extends Struct.CollectionTypeSchema {
+  collectionName: 'training_dtls';
+  info: {
+    displayName: 'Training_dtl';
+    pluralName: 'training-dtls';
+    singularName: 'training-dtl';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::training-dtl.training-dtl'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Tdtl_amv: Schema.Attribute.Decimal;
+    Tdtl_date: Schema.Attribute.Date;
+    Thead_id: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTrainingTraining extends Struct.CollectionTypeSchema {
   collectionName: 'trainings';
   info: {
@@ -1312,6 +1342,7 @@ declare module '@strapi/strapi' {
       'api::grade.grade': ApiGradeGrade;
       'api::gsd.gsd': ApiGsdGsd;
       'api::pro-type.pro-type': ApiProTypeProType;
+      'api::training-dtl.training-dtl': ApiTrainingDtlTrainingDtl;
       'api::training.training': ApiTrainingTraining;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
