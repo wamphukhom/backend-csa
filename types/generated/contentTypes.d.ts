@@ -692,8 +692,8 @@ export interface ApiTrainingTraining extends Struct.CollectionTypeSchema {
     Tcycle_time: Schema.Attribute.Decimal;
     Temp_id: Schema.Attribute.Relation<'oneToOne', 'api::employee.employee'>;
     Tgsd_id: Schema.Attribute.Relation<'oneToOne', 'api::gsd.gsd'>;
-    Tperformance: Schema.Attribute.Decimal;
-    Tquality: Schema.Attribute.Integer;
+    Tperformance: Schema.Attribute.String;
+    Tquality: Schema.Attribute.String;
     Tstyle: Schema.Attribute.String;
     Ttype: Schema.Attribute.Relation<'oneToOne', 'api::pro-type.pro-type'>;
     updatedAt: Schema.Attribute.DateTime;

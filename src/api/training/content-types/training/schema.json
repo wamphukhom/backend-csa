@@ -22,13 +22,13 @@
       "target": "api::gsd.gsd"
     },
     "Tquality": {
-      "type": "integer"
+      "type": "string"
     },
     "Tcycle_time": {
       "type": "decimal"
     },
     "Tperformance": {
-      "type": "decimal"
+      "type": "string"
     },
     "Ttype": {
       "type": "relation",
