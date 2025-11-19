@@ -455,62 +455,6 @@ export interface ApiBuBu extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiCusPositionCusPosition extends Struct.CollectionTypeSchema {
-  collectionName: 'cus_positions';
-  info: {
-    displayName: 'Cus_position';
-    pluralName: 'cus-positions';
-    singularName: 'cus-position';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Cpo_name: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::cus-position.cus-position'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiCusTypeCusType extends Struct.CollectionTypeSchema {
-  collectionName: 'cus_types';
-  info: {
-    displayName: 'Cus_type';
-    pluralName: 'cus-types';
-    singularName: 'cus-type';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Ctype_name: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::cus-type.cus-type'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
   collectionName: 'customers';
   info: {
@@ -526,47 +470,11 @@ export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Cus_id: Schema.Attribute.String;
-    Cus_img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Cus_mail: Schema.Attribute.Email;
     Cus_name: Schema.Attribute.String;
-    Cus_position: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::cus-position.cus-position'
-    >;
-    Cus_tel: Schema.Attribute.String;
-    Cus_type: Schema.Attribute.Relation<'oneToOne', 'api::cus-type.cus-type'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::customer.customer'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiDepartmentDepartment extends Struct.SingleTypeSchema {
-  collectionName: 'departments';
-  info: {
-    displayName: 'Department';
-    pluralName: 'departments';
-    singularName: 'department';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Dep_name: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::department.department'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -662,31 +570,6 @@ export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::employee.employee'
     > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiGradeGrade extends Struct.CollectionTypeSchema {
-  collectionName: 'grades';
-  info: {
-    displayName: 'Grade';
-    pluralName: 'grades';
-    singularName: 'grade';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    G_name: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::grade.grade'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -807,9 +690,7 @@ export interface ApiTrainingTraining extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     Tcustomer: Schema.Attribute.Relation<'oneToOne', 'api::customer.customer'>;
     Tcycle_time: Schema.Attribute.Decimal;
-    Tdate: Schema.Attribute.DateTime;
     Temp_id: Schema.Attribute.Relation<'oneToOne', 'api::employee.employee'>;
-    Tgrade: Schema.Attribute.Relation<'oneToOne', 'api::grade.grade'>;
     Tgsd_id: Schema.Attribute.Relation<'oneToOne', 'api::gsd.gsd'>;
     Tperformance: Schema.Attribute.Decimal;
     Tquality: Schema.Attribute.Integer;
@@ -1332,14 +1213,10 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::bu.bu': ApiBuBu;
-      'api::cus-position.cus-position': ApiCusPositionCusPosition;
-      'api::cus-type.cus-type': ApiCusTypeCusType;
       'api::customer.customer': ApiCustomerCustomer;
-      'api::department.department': ApiDepartmentDepartment;
       'api::emp-position.emp-position': ApiEmpPositionEmpPosition;
       'api::emp-type.emp-type': ApiEmpTypeEmpType;
       'api::employee.employee': ApiEmployeeEmployee;
-      'api::grade.grade': ApiGradeGrade;
       'api::gsd.gsd': ApiGsdGsd;
       'api::pro-type.pro-type': ApiProTypeProType;
       'api::training-dtl.training-dtl': ApiTrainingDtlTrainingDtl;

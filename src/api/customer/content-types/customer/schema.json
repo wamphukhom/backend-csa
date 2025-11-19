@@ -16,32 +16,6 @@
     },
     "Cus_name": {
       "type": "string"
-    },
-    "Cus_mail": {
-      "type": "email"
-    },
-    "Cus_img": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "Cus_tel": {
-      "type": "string"
-    },
-    "Cus_type": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::cus-type.cus-type"
-    },
-    "Cus_position": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::cus-position.cus-position"
     }
   }
 }

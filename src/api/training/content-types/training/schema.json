@@ -24,11 +24,6 @@
     "Tquality": {
       "type": "integer"
     },
-    "Tgrade": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::grade.grade"
-    },
     "Tcycle_time": {
       "type": "decimal"
     },
@@ -47,9 +42,6 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::customer.customer"
-    },
-    "Tdate": {
-      "type": "datetime"
     }
   }
 }
