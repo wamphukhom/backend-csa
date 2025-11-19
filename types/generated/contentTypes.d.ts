@@ -660,7 +660,7 @@ export interface ApiTrainingDtlTrainingDtl extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     Tdtl_amv: Schema.Attribute.Decimal;
     Tdtl_date: Schema.Attribute.Date;
-    Thead_id: Schema.Attribute.Integer;
+    Thead_id: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

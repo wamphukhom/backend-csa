@@ -12,7 +12,7 @@
   "pluginOptions": {},
   "attributes": {
     "Thead_id": {
-      "type": "integer"
+      "type": "string"
     },
     "Tdtl_date": {
       "type": "date"
